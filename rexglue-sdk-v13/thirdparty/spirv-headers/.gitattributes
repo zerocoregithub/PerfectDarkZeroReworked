@@ -1,0 +1,11 @@
+*.json text
+*.h text
+*.hpp text
+*.hpp11 text
+*.lua text
+*.py text
+*.xml
+
+# Reworked source delivery: preserve reviewed bytes and source-manifest hashes.
+# Packaging metadata only; retain upstream diff/language attributes above.
+* -text

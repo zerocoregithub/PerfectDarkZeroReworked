@@ -1,0 +1,91 @@
+#pragma once
+#include <string_view>
+
+namespace pdz::settings {
+enum class Preset { Classic, GameCube, Modernized, Vanilla };
+struct PresetValue { const char* name; const char* classic; const char* vanilla; };
+// Store only independent base policies. Modernized derives from Classic with
+// explicit overrides in Value(); there is no second, contradictory modern table.
+// Look settings and presentation timing are preserved. Button defaults are
+// applied separately from the existing input binding table for every built-in.
+// Classic is the approved configuration without the optional GameCube renderer.
+inline constexpr PresetValue kPresetValues[]={
+ {"pdz_stick_curve","relaxed","original"},
+ {"pdz_classic_movement","true","false"},
+ {"pdz_modern_movement","false","false"},
+ {"pdz_unarmed_run_boost","true","false"},
+ {"pdz_hide_unarmed_hands","true","false"},
+ {"pdz_hold_y_holster","true","false"},
+ {"pdz_reload_interact","true","false"},
+ {"pdz_weapon_bob_amount","0.5","1.0"},
+ {"pdz_weapon_action_speed","1.5","1.0"},
+ {"pdz_classic_npc_durability","true","false"},
+ {"pdz_npc_health_scale","0.5","1.0"},
+ {"pdz_movement_response","4.0","1.0"},
+ {"pdz_classic_weapon_sway","true","false"},
+ {"pdz_classic_weapon_sway_amount","4.0","0.0"},
+ {"pdz_classic_sway_aim","true","false"},
+ {"pdz_classic_free_aim","true","false"},
+ {"pdz_free_aim_ads_only","true","true"},
+ {"pdz_sway_during_ads","true","false"},
+ {"pdz_cursor_sway_deadzone","0.017453","0.0"},
+ {"pdz_cursor_visual_smoothing","0.04","0.0"},
+ {"pdz_crosshair_edge_deadzone","0.4","0.5"},
+ {"pdz_zoom_transition","0.08","0.0"},
+ {"pdz_dpad_zoom","true","false"},
+ {"pdz_wheel_zoom","true","false"},
+ {"pdz_auto_aim","true","false"},
+ {"pdz_native_aim_assist","false","false"},
+ {"pdz_disable_motion_blur","true","false"},
+ {"pdz_custom_crosshair","false","false"},
+ {"pdz_auto_aim_range_boost","true","false"},
+ {"pdz_auto_aim_close_boost","2.0","1.0"},
+ {"pdz_weapon_accuracy","true","false"},
+ {"pdz_classic_hud","true","false"},
+ {"pdz_half_native_hud","true","false"},
+ {"pdz_classic_hud_crosshair","true","false"},
+ {"pdz_classic_scope","true","false"},
+ {"pdz_hide_original_crosshair","false","false"},
+ {"pdz_classic_hud_hide_objective","true","false"},
+ {"pdz_hide_interaction_prompts","true","false"},
+ {"pdz_ammo_auto_hide","true","false"},
+ {"pdz_ammo_hide_delay","5.0","5.0"},
+ {"pdz_ammo_hud_scale","0.6","1.0"},
+ {"pdz_crosshair_red","0","255"},
+ {"pdz_crosshair_green","255","255"},
+ {"pdz_crosshair_blue","0","255"},
+ {"pdz_crosshair_opacity","135","255"},
+ {"pdz_crosshair_size","6.0","3.0"},
+ {"pdz_crosshair_gap","0.0","4.0"},
+ {"pdz_crosshair_thickness","3.0","2.0"},
+ {"pdz_crosshair_outline","0.0","1.0"},
+ {"pdz_crosshair_style","cross","outlined_dot"},
+ {"pdz_horizontal_fov","105.0","89.15957277247843"},
+ {"pdz_viewmodel_horizontal_shift","0.0","0.0"},
+ {"pdz_viewmodel_vertical_shift","0.0","0.0"},
+ {"pdz_fov_scale","1.0","1.0"},
+ {"pdz_display_gamma","1.12","1.0"},
+ {"pdz_display_contrast","1.04","1.0"},
+ {"pdz_display_saturation","1.06","1.0"},
+ {"pdz_display_tint","0.02","0.0"},
+ {"pdz_scene_only_grading","true","true"},
+ {"pdz_stylized_lighting","false","false"},
+ {"pdz_disable_warehouse_door_autoclose","true","false"},
+ {"pdz_dodge_roll","true","false"},
+ {"pdz_cover_camera_stabilization","false","false"},
+};
+inline const char* Value(const PresetValue& v,Preset p) {
+  // Keep one policy entry point for startup, UI and persistence. The frozen
+  // reference test covers every effective value, including derived presets.
+  if(p==Preset::GameCube) return std::string_view(v.name)=="pdz_stylized_lighting"?"true":v.classic;
+  if(p==Preset::Modernized) {
+    const std::string_view name=v.name;
+    if(name=="pdz_native_aim_assist")return "true";
+    if(name=="pdz_auto_aim"||name=="pdz_classic_weapon_sway"||
+       name=="pdz_classic_sway_aim"||name=="pdz_sway_during_ads")return "false";
+    return v.classic;
+  }
+  return p==Preset::Classic?v.classic:v.vanilla;
+}
+inline bool AllowAimAssist(bool enabled,bool scoped) {return enabled&&!scoped;}
+}

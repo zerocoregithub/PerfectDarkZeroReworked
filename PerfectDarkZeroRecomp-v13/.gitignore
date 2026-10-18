@@ -1,0 +1,47 @@
+assets/*
+!assets/README.md
+# Do not publish local artwork without a separate provenance review.
+generated/*
+!generated/rexglue.cmake
+out/*
+rexglue/*
+!rexglue/README.md
+# Preserve required regeneration and focused verification sources, not local
+# capture/deployment scripts or their machine-specific defaults.
+tools/*
+!tools/fix-unresolved-tail-jumps.ps1
+!tools/apply-p9p-visibility-hook.ps1
+!tools/patch-vision-color.ps1
+!tools/patch-generated-runtime.ps1
+!tools/patch-generated-build.ps1
+!tools/build-common.ps1
+!tools/build-dev.ps1
+!tools/build-profile.ps1
+!tools/build-release.ps1
+!tools/pdz-offline-image.cpp
+!tools/test-*.cpp
+!tools/test-*.h
+!tools/preset-policy-reference.h
+!tools/test-*.ps1
+!tools/preserve-release-source.ps1
+!tools/prepare-release-check.ps1
+!tools/export-sdk-source-archive.ps1
+!tools/export-public-source.ps1
+!tools/package-clean-release.ps1
+!tools/test-source-archive.py
+*.log
+
+# Publication safeguards (not a replacement for an explicit export audit).
+/CMakeUserPresets.json
+/user-data/
+/profiles/
+/cache/
+/logs/
+/captures/
+*.iso
+*.xex
+*.pkg
+*.rdc
+*.pdb
+*.dmp
+*.bak

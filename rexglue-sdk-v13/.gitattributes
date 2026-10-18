@@ -1,0 +1,21 @@
+# Enforce LF line endings for all text files
+* text=auto eol=lf
+
+# Explicitly mark binary files
+*.png binary
+*.jpg binary
+*.ico binary
+*.zip binary
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+*.a binary
+*.lib binary
+*.obj binary
+*.o binary
+*.pdb binary
+
+# Reworked source delivery: preserve reviewed bytes and source-manifest hashes.
+# Packaging metadata only; retain upstream diff/language attributes above.
+* -text

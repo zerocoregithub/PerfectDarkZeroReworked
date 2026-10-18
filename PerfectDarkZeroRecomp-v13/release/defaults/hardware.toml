@@ -1,0 +1,3 @@
+# Required portable renderer selection; all other values use compiled defaults.
+gpu_plugin = "xenos"
+graphics_backend = "any"

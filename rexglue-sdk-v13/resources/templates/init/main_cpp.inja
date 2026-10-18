@@ -1,0 +1,7 @@
+// {{ names.original }} - ReXGlue Recompiled Project
+
+#include "{{ entrypoint_out_dir }}/{{ names.original }}_init.h"
+
+#include "{{ names.original }}_app.h"
+
+REX_DEFINE_APP({{ names.original }}, {{ names.pascal_case }}App::Create)

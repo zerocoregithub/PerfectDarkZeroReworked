@@ -1,0 +1,25 @@
+# Build and proprietary/private artifacts must never enter this repository.
+**/out/
+**/__pycache__/
+**/generated/default/
+PerfectDarkZeroRecomp-v13/assets/
+PerfectDarkZeroRecomp-v13/settings/
+PerfectDarkZeroRecomp-v13/user-data/
+PerfectDarkZeroRecomp-v13/profiles/
+*.iso
+*.xex
+*.pkg
+*.rdc
+*.pdb
+*.dmp
+*.exe
+*.dll
+*.obj
+*.pdnf
+*.log
+*.bak
+.env
+.env.*
+**/.aws/
+**/.ssh/
+**/CMakeUserPresets.json

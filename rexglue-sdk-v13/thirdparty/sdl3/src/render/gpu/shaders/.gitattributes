@@ -1,0 +1,5 @@
+*.h linguist-generated
+
+# Reworked source delivery: preserve reviewed bytes and source-manifest hashes.
+# Packaging metadata only; retain upstream diff/language attributes above.
+* -text

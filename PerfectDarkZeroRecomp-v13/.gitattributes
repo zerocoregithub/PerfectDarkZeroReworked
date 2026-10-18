@@ -1,0 +1,9 @@
+* text=auto
+*.cpp text eol=lf
+*.h text eol=lf
+*.hpp text eol=lf
+*.cmake text eol=lf
+
+# Reworked source delivery: preserve reviewed bytes and source-manifest hashes.
+# Packaging metadata only; retain upstream diff/language attributes above.
+* -text

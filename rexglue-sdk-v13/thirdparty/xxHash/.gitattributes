@@ -1,0 +1,14 @@
+# Set the default behavior
+* text eol=lf
+
+# Explicitly declare source files
+*.c text eol=lf
+*.h text eol=lf
+
+# Denote files that should not be modified.
+*.odt binary
+
+# Reworked source delivery: preserve reviewed bytes and source-manifest hashes.
+# Packaging metadata only; retain upstream diff/language attributes above.
+* -text
+

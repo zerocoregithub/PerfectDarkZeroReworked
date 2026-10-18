@@ -1,0 +1,38 @@
+# Manual function boundaries for addresses that the auto-analyzer didn't
+# discover as functions on its own (only reached via plain `b`, not `bl`,
+# so no call-graph edge pointed at them). Leaving the table empty lets
+# codegen find the natural boundaries itself (size=0 -> discover via region).
+#
+# Found via: rexglue codegen (UnresolvedCall errors during Validate phase).
+
+[functions]
+# Indirect forwarding thunk missed by discovery; jungle projectile fatal log252.
+0x825A8080 = {}
+# Jungle jetpack-area fatal in log113: original byte getter, lbz r3,92(r3); blr.
+0x8223D568 = {}
+# Reproducible jungle mission fatal, log111 at 2026-09-09 20:14:13.
+0x8223D550 = {}
+# Called indirectly when disarming an NPC; absent from automatic discovery.
+# Fatal observed in perfectdarkzerorecomp_105.log, 2026-09-09 10:04:05.
+0x82585398 = {}
+0x8250B06C = {}
+0x82CAB0D8 = {}
+0x827308D8 = {}
+0x8269F950 = {}
+0x82A4F5E0 = {}
+0x82C287A8 = {}
+0x82C0E450 = {}
+0x823C3040 = {}
+0x8226C948 = {}
+0x821CE820 = {}
+0x821CFE68 = {}
+0x821CF368 = {}
+0x821D2E18 = {}
+0x8250AF28 = {}
+0x822E37E8 = {}
+0x823A30B8 = {}
+0x82513240 = {}
+0x8251C820 = {}
+0x82988C60 = {}
+0x82988C78 = {}
+0x829BE180 = {}

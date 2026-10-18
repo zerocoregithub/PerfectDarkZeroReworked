@@ -1,0 +1,5 @@
+# Authored public defaults, not a player's configuration.
+input_backend = "sdl"
+hid_mappings_file = ""
+mnk_mode = true
+mnk_mouse = true
