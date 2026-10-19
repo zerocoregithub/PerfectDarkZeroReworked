@@ -39,9 +39,11 @@ not a literal GitHub fork with shared upstream ancestry. Integration inventories
 record reference commits and file differences; they are not claims that features
 are already independent cherry-picks.
 
-This staging has not been uploaded or gameplay-qualified as a new release. Keep
-source checks, gameplay acceptance and distribution approval distinct. No automatic
-upstream CI workflows are installed at this repository's root.
+The v0.9.0-rc1 developer and clean Windows packages were gameplay-tested and
+accepted by the maintainer on 19 October 2026 after a fresh committed-source build.
+See [release notes and verification scope](RELEASE_NOTES.md). This is a release
+candidate, not a claim that every hardware/device/mission combination is verified.
+No automatic upstream CI workflows are installed at this repository's root.
 
 ## Licences
 

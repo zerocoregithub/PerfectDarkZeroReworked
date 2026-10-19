@@ -37,7 +37,11 @@ The source map/SDK delta inventory separates game, generic SDK interfaces,
 game-specific SDK policy and vendored dependency source. These inventories aid
 review; they are not a complete tested set of independently applicable patches.
 
-Publication still requires a chosen Git author identity, final staged-tree audit,
-GitHub destination and upload approval. No commits with an invented human author
-or remote publication are made by preparing these files. Full gameplay regression
-of a future newly compiled candidate remains separate from source/test checks.
+The maintainer supplied the Git identity zerocoregithub and their GitHub noreply
+email. Reviewed runtime source was committed as
+c4bd886fd41bbfd3b3241a205497454289b4bf77. A fresh build from that commit and its
+matched SDK passed the engineering checks described in RELEASE_NOTES.md; both
+developer and clean packages subsequently received general user gameplay
+acceptance on 19 October 2026. Publication was explicitly authorized afterward.
+The later release-status documentation does not modify game/SDK source or the
+tested binary package. Per-scenario and hardware limitations remain documented.

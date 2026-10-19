@@ -18,11 +18,12 @@ does not compile, download game data, run the game or prove gameplay correctness
 Use the game build guide for the separately pinned compiler, legal game inputs
 and generated-hook adapters. The runtime SDK is not the generation compiler SDK.
 
-The initial preparation tests fresh Git-tree checkouts with core.autocrlf both
-false and true. They do not invent an author identity or create a release commit.
-A final clone of the committed repository remains a publication gate after the
-maintainer supplies their Git identity. Build/test outputs belong outside this
-source delivery or in ignored output directories.
+Preparation tested fresh Git-tree checkouts with core.autocrlf both false and true.
+A real local transport clone of committed source (without hardlink shortcuts)
+also passed game/SDK hashes and clean-tree checks. The maintainer supplied the
+GitHub identity used by the source commit. See RELEASE_NOTES.md for the exact
+runtime source commit and later gameplay acceptance; these are distinct checks.
+Build/test outputs belong outside this source delivery or in ignored directories.
 
 ## Optional SDK instruction tests
 
