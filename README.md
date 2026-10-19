@@ -11,6 +11,43 @@ legally owned supported ISO. Different executable revisions are not interchangea
 The clean portable binary extracts local game data on first launch; source builds
 require developer tools and supported game input. Nothing downloads game data.
 
+## Watch the walkthrough
+
+[**Watch: Perfect Dark Zero Reworked — features, controls and gameplay**](https://youtu.be/fIbKRaN6MFM)
+
+A hands-on tour of the presets, controller/gyro settings, aiming, presentation
+options and experimental features, followed by mission gameplay.
+[Skip to gameplay at 18:00](https://www.youtube.com/watch?v=fIbKRaN6MFM&t=1080s).
+
+Ready to try it? [Download the Windows x64 release](https://github.com/zerocoregithub/PerfectDarkZeroReworked/releases/tag/v0.9.0-rc1).
+
+## Steam Controller: recommended Windows setup
+
+For native controller and gyro input, the maintainer's tested launch options are:
+
+1. **Without Steam:** fully exit Steam, including its system-tray/background
+   process, then launch `PerfectDarkZeroReworked-v0.9.0-rc1.exe` directly.
+2. **With Steam:** add that root launcher as a **non-Steam game** and launch it
+   from your Steam library. Use a standard gamepad layout. Leave Steam's gyro
+   output set to **None** and configure native gyro in the game's overlay, rather
+   than combining Steam's **Gyro to Mouse/Joystick** output with native gyro.
+
+In the overlay (`F8` or **View + Menu / Select + Start**), open **Gyro**. If the
+Steam Controller's native motion sensor is not detected, enable **Native Steam
+Controller driver (restart required)** and restart the game. Enable/tune native
+gyro there once the physical motion-capable controller is detected. A virtual
+Xbox controller alone does not expose gyro.
+
+**Avoid launching the EXE directly while Steam is running in the background.**
+That combination can add desktop mouse/keyboard or emulated-controller actions
+alongside native input, causing double presses, unexpected actions or doubled
+aiming. Steam Controller desktop fallback ("lizard mode") and Steam's desktop
+layout are related troubleshooting concerns, not identical input paths. Reworked
+does not universally suppress Steam's desktop mappings or synchronize its native
+settings with Steam Input. If interference persists, fully exit Steam and retry
+the native path. These Windows observations do not establish Steam Deck/Proton
+feature parity; see [known limitations](PerfectDarkZeroRecomp-v13/KNOWN_ISSUES.md).
+
 ## Start here
 
 Check source integrity with [verification instructions](VERIFYING.md) before
